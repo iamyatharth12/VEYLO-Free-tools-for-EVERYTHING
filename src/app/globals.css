@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/* ── Design Tokens (Tailwind v4 CSS-first config) ──────────────── */
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  --animate-fade-in:      fade-in 0.3s cubic-bezier(0.16,1,0.3,1) both;
+  --animate-slide-up:     slide-up 0.25s cubic-bezier(0.16,1,0.3,1) both;
+  --animate-glow-pulse:   glow-pulse 2s ease-in-out infinite;
+  --animate-badge-pop:    badge-pop 0.2s cubic-bezier(0.34,1.56,0.64,1) both;
+
+  @keyframes fade-in   { from { opacity: 0; transform: translateY(8px); }  to { opacity: 1; transform: none; } }
+  @keyframes slide-up  { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+    50%       { box-shadow: 0 0 24px 6px color-mix(in srgb, var(--accent) 28%, transparent); }
+  }
+  @keyframes ripple  { from { transform: scale(0); opacity: 0.5; } to { transform: scale(4); opacity: 0; } }
+  @keyframes badge-pop { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LIGHT THEME  —  DEFAULT (no data-theme attribute needed)
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  /* Backgrounds */
+  --bg:         #f5f5f9;
+  --surface:    #ffffff;
+  --surface-2:  #eeeef5;
+  --surface-3:  #e4e4ed;
+
+  /* Borders */
+  --border-c:   #dcdce8;
+  --border-2:   #c8c8d8;
+
+  /* Text */
+  --text:       #0f0f18;
+  --text-2:     #30303f;
+  --muted:      #70708a;
+
+  /* Accent (indigo) */
+  --accent:     #5b5ef4;
+  --accent-dim: #4340e0;
+  --accent-fg:  #3730a3;
+  --accent-bg:  rgba(91,94,244,0.08);
+
+  /* Status */
+  --green:      #16a34a;
+  --green-dim:  #15803d;
+  --green-bg:   rgba(22,163,74,0.08);
+  --red:        #dc2626;
+  --amber:      #d97706;
+
+  /* Mouse SVG — dedicated vars so both themes look crisp */
+  --mouse-body:         #e0e0ec;   /* light grey body */
+  --mouse-body-stroke:  #a0a0bc;   /* visible border */
+  --mouse-btn-resting:  #d4d4e4;   /* slightly darker than body */
+  --mouse-divider:      #a8a8c0;
+  --mouse-wheel-fill:   #a8a8c8;
+  --mouse-wheel-stroke: #8888aa;
+  --mouse-groove:       #c8c8dc;
+  --mouse-groove-inner: #b0b0cc;
+  --mouse-shadow-color: rgba(80,80,120,0.18);
+
+  /* Button interactive states */
+  --btn-active-bg:      rgba(91,94,244,0.15);
+  --btn-active-border:  #5b5ef4;
+  --btn-active-glow:    rgba(91,94,244,0.35);
+  --btn-resting-bg:     #d4d4e4;
+  --btn-resting-border: #a8a8c0;
+
+  color-scheme: light;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DARK THEME  —  applied via data-theme="dark" on <html>
+   ═══════════════════════════════════════════════════════════════════ */
+:root[data-theme="dark"] {
+  --bg:         #0d0d12;
+  --surface:    #16161e;
+  --surface-2:  #1e1e28;
+  --surface-3:  #252532;
+
+  --border-c:   #2a2a38;
+  --border-2:   #38384a;
+
+  --text:       #ededf2;
+  --text-2:     #c0c0ce;
+  --muted:      #8888a0;
+
+  --accent:     #7b7ef5;
+  --accent-dim: #5b5ef4;
+  --accent-fg:  #c7d2fe;
+  --accent-bg:  rgba(123,126,245,0.1);
+
+  --green:      #22c55e;
+  --green-dim:  #16a34a;
+  --green-bg:   rgba(34,197,94,0.1);
+  --red:        #f87171;
+  --amber:      #fbbf24;
+
+  /* Mouse SVG — clearly visible on dark bg */
+  --mouse-body:         #2e2e40;   /* noticeably lighter than --bg */
+  --mouse-body-stroke:  #5a5a78;
+  --mouse-btn-resting:  #252535;
+  --mouse-divider:      #4a4a62;
+  --mouse-wheel-fill:   #4a4a6a;
+  --mouse-wheel-stroke: #6868a0;
+  --mouse-groove:       #252535;
+  --mouse-groove-inner: #1e1e2e;
+  --mouse-shadow-color: rgba(0,0,0,0.6);
+
+  --btn-active-bg:      rgba(123,126,245,0.25);
+  --btn-active-border:  #7b7ef5;
+  --btn-active-glow:    rgba(123,126,245,0.45);
+  --btn-resting-bg:     #252535;
+  --btn-resting-border: #4a4a62;
+
+  color-scheme: dark;
+}
+
+/* Light is default — explicit selector for completeness */
+:root[data-theme="light"] {
+  /* inherits from :root — no overrides needed */
+}
+
+/* ── Base ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { height: 100%; }
+
+body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.25s ease, color 0.2s ease;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* ── Focus Ring ────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Reduced Motion ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Nav link hover (CSS-only) ─────────────────────────────────── */
+.nav-link          { color: var(--muted); text-decoration: none; transition: color 0.15s ease; }
+.nav-link:hover    { color: var(--text); }
+
+/* ── Header glass ──────────────────────────────────────────────── */
+.header-glass {
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-c);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+/* ── Utility classes ───────────────────────────────────────────── */
+.animate-fade-in    { animation: var(--animate-fade-in); }
+.animate-slide-up   { animation: var(--animate-slide-up); }
+.animate-glow-pulse { animation: var(--animate-glow-pulse); }
+.animate-badge-pop  { animation: var(--animate-badge-pop); }
+
+/* ── Mouse button transitions ──────────────────────────────────── */
+.mouse-btn {
+  transition:
+    fill 0.1s ease,
+    stroke 0.1s ease,
+    filter 0.15s ease;
+}
+.mouse-btn.pressed {
+  filter: drop-shadow(0 0 10px var(--btn-active-glow));
+}
+
+/* ── Scroll wheel keyframes ────────────────────────────────────── */
+@keyframes wheel-scroll-up   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes wheel-scroll-down { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+.wheel-scroll-up   { animation: wheel-scroll-up   0.4s ease; }
+.wheel-scroll-down { animation: wheel-scroll-down 0.4s ease; }
+
+/* ── Status dot pulse ──────────────────────────────────────────── */
+@keyframes active-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+.status-dot-active { animation: active-pulse 2s ease-in-out infinite; }
