@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useMouseTester }         from '@/hooks/useMouseTester';
 import MouseVisual                from './components/MouseVisual';
 import StatsPanel                 from './components/StatsPanel';

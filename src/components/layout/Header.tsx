@@ -5,9 +5,12 @@ import Link from 'next/link';
 import { useTheme } from '@/hooks/useTheme';
 
 const NAV_LINKS = [
-  { href: '/mouse-tester', label: 'Mouse Tester' },
-  { href: '#tools',        label: 'Tools' },
-  { href: '#about',        label: 'About' },
+  { href: '/mouse-tester',           label: 'Mouse Tester' },
+  { href: '/mouse-click-test',       label: 'Click Test' },
+  { href: '/double-click-test',      label: 'Double Click' },
+  { href: '/mouse-polling-rate-test', label: 'Polling Rate (Hz)' },
+  { href: '/cps-test',               label: 'CPS Test' },
+  { href: '/about',                  label: 'About' },
 ];
 
 function SunIcon() {
@@ -35,7 +38,7 @@ function MoonIcon() {
 }
 
 export default function Header() {
-  const [open, setOpen]   = useState(false);
+  const [open, setOpen] = useState(false);
   const { theme, toggle, mounted } = useTheme();
 
   return (
@@ -45,10 +48,10 @@ export default function Header() {
 
           {/* Logo */}
           <Link
-            href="/mouse-tester"
+            href="/"
             className="flex items-center gap-2.5 font-semibold text-base tracking-tight"
             style={{ color: 'var(--text)' }}
-            aria-label="Mouse Tester home"
+            aria-label="Mouse Tester Home"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ color: 'var(--accent)' }}>
               <rect x="5" y="2" width="14" height="20" rx="7"/>
@@ -59,13 +62,13 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav + theme toggle */}
-          <div className="hidden sm:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1">
             <nav className="flex items-center gap-1" aria-label="Main navigation">
               {NAV_LINKS.map(l => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="nav-link px-3 py-1.5 text-sm rounded-md"
+                  className="nav-link px-2.5 py-1.5 text-xs font-medium rounded-md"
                 >
                   {l.label}
                 </Link>
@@ -83,7 +86,7 @@ export default function Header() {
               title={mounted ? `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode` : 'Toggle theme'}
               style={{
                 background: 'var(--surface)',
-                border:     '1px solid var(--border-c)',
+                border: '1px solid var(--border-c)',
               }}
             >
               {mounted ? (theme === 'dark' ? <SunIcon /> : <MoonIcon />) : <SunIcon />}
@@ -91,7 +94,7 @@ export default function Header() {
           </div>
 
           {/* Mobile: theme toggle + hamburger */}
-          <div className="sm:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-2">
             <button
               onClick={toggle}
               className="p-2 rounded-lg nav-link cursor-pointer"
@@ -119,7 +122,7 @@ export default function Header() {
 
         {/* Mobile drawer */}
         {open && (
-          <nav className="sm:hidden pb-3 flex flex-col gap-0.5 animate-slide-up" aria-label="Mobile navigation">
+          <nav className="md:hidden pb-3 flex flex-col gap-0.5 animate-slide-up" aria-label="Mobile navigation">
             {NAV_LINKS.map(l => (
               <Link
                 key={l.href}

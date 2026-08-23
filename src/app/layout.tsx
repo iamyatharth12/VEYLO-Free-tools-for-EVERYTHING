@@ -1,20 +1,56 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Header   from '@/components/layout/Header';
-import Footer   from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import ToolShell from '@/components/layout/ToolShell';
+import AdSlot from '@/components/ui/AdSlot';
+import { SITE_CONFIG } from '@/lib/siteConfig';
 
 const inter = Inter({
-  subsets:  ['latin'],
+  subsets: ['latin'],
   variable: '--font-inter',
-  display:  'swap',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title:       'Mouse Tester — Free Browser Tools',
-  description: 'Free, privacy-friendly browser utilities. Test your mouse, keyboard, gamepad, and more.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'https://mousetester.app'),
+  metadataBase: new URL(SITE_CONFIG.url),
+  title: {
+    default: 'Mouse Tester — Free Online Mouse & Hardware Utilities',
+    template: '%s | Mouse Tester',
+  },
+  description: SITE_CONFIG.description,
+  keywords: [
+    'mouse tester',
+    'mouse test',
+    'mouse button test',
+    'double click test',
+    'mouse scroll test',
+    'mouse polling rate test',
+    'mouse DPI test',
+    'CPS test',
+    'online input tester',
+  ],
+  authors: [{ name: SITE_CONFIG.name }],
+  creator: SITE_CONFIG.name,
+  publisher: SITE_CONFIG.publisher,
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
+    title: 'Mouse Tester — Free Online Mouse & Hardware Utilities',
+    description: SITE_CONFIG.description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mouse Tester — Free Online Mouse & Hardware Utilities',
+    description: SITE_CONFIG.description,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -34,8 +70,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ToolShell>
         <Footer />
 
-        {/* Ad slot placeholders — hidden; structure ready for future monetization */}
-        <div data-ad-slot="bottom-banner"  aria-hidden="true" style={{ display: 'none' }} />
+        {/* AdSense readiness bottom container */}
+        <AdSlot position="bottom-banner" />
       </body>
     </html>
   );

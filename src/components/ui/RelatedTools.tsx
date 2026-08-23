@@ -1,38 +1,54 @@
+import Link from 'next/link';
+
 const TOOLS = [
   {
-    href:   null,
-    label:  'Mouse Click Test',
-    desc:   'Measure your raw clicking speed.',
-    icon:   '🖱️',
-    soon:   true,
+    href: '/mouse-tester',
+    label: 'Mouse Tester',
+    desc: 'Full diagnostic suite for buttons, scroll & movement.',
+    icon: '🖱️',
+    soon: false,
   },
   {
-    href:   null,
-    label:  'Double Click Test',
-    desc:   'Detect and measure double-clicks.',
-    icon:   '⚡',
-    soon:   true,
+    href: '/mouse-click-test',
+    label: 'Mouse Click Test',
+    desc: 'Test left, right, middle & side button signals.',
+    icon: '🎯',
+    soon: false,
   },
   {
-    href:   null,
-    label:  'Polling Rate Test',
-    desc:   'Estimate your mouse polling rate.',
-    icon:   '📡',
-    soon:   true,
+    href: '/double-click-test',
+    label: 'Double Click Test',
+    desc: 'Detect switch chatter & timing intervals.',
+    icon: '⚡',
+    soon: false,
   },
   {
-    href:   null,
-    label:  'Keyboard Tester',
-    desc:   'Test every key on your keyboard.',
-    icon:   '⌨️',
-    soon:   true,
+    href: '/mouse-scroll-test',
+    label: 'Mouse Scroll Test',
+    desc: 'Check wheel notches, tilt & scroll direction.',
+    icon: '📜',
+    soon: false,
   },
   {
-    href:   null,
-    label:  'Gamepad Tester',
-    desc:   'Test buttons and axes on controllers.',
-    icon:   '🎮',
-    soon:   true,
+    href: '/mouse-polling-rate-test',
+    label: 'Polling Rate Test',
+    desc: 'Measure real-time mouse frequency (Hz).',
+    icon: '📡',
+    soon: false,
+  },
+  {
+    href: '/mouse-dpi-test',
+    label: 'Mouse DPI Test',
+    desc: 'Estimate hardware DPI & calculate eDPI.',
+    icon: '📐',
+    soon: false,
+  },
+  {
+    href: '/cps-test',
+    label: 'CPS Speed Test',
+    desc: 'Measure clicks per second & rank speed.',
+    icon: '⏱️',
+    soon: false,
   },
 ] as const;
 
@@ -44,35 +60,27 @@ export default function RelatedTools() {
         className="text-base font-semibold mb-4"
         style={{ color: 'var(--text)' }}
       >
-        Related Tools
+        Mouse &amp; Hardware Tool Suite
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
         {TOOLS.map(tool => (
-          <div
+          <Link
             key={tool.label}
-            className="rounded-xl p-3 flex flex-col gap-2 cursor-default"
+            href={tool.href}
+            className="rounded-xl p-3.5 flex flex-col gap-2 transition-all duration-150 hover:-translate-y-0.5"
             style={{
-              background:  'var(--surface)',
-              border:      '1px solid var(--border-c)',
-              opacity:     tool.soon ? 0.6 : 1,
+              background: 'var(--surface)',
+              border: '1px solid var(--border-c)',
             }}
-            aria-label={tool.soon ? `${tool.label} (Coming soon)` : tool.label}
+            aria-label={tool.label}
           >
             <span className="text-xl" aria-hidden="true">{tool.icon}</span>
             <div>
               <p className="text-xs font-semibold" style={{ color: 'var(--text)' }}>{tool.label}</p>
-              <p className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>{tool.desc}</p>
+              <p className="text-xs mt-0.5 leading-snug" style={{ color: 'var(--muted)' }}>{tool.desc}</p>
             </div>
-            {tool.soon && (
-              <span
-                className="text-xs px-1.5 py-0.5 rounded w-fit font-medium"
-                style={{ background: 'var(--surface-2)', color: 'var(--muted)' }}
-              >
-                Coming soon
-              </span>
-            )}
-          </div>
+          </Link>
         ))}
       </div>
     </section>

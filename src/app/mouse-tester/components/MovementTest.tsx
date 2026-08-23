@@ -21,7 +21,6 @@ export default function MovementTest({ movement, resetSignal }: MovementTestProp
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const dpr = window.devicePixelRatio || 1;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -56,7 +55,6 @@ export default function MovementTest({ movement, resetSignal }: MovementTestProp
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const dpr    = window.devicePixelRatio || 1;
     const rect   = canvas.getBoundingClientRect();
     const logW   = rect.width;
     const logH   = rect.height;

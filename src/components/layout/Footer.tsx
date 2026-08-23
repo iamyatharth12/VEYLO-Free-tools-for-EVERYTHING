@@ -14,22 +14,24 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
 
           {/* Brand */}
-          <div className="flex items-center gap-2 text-sm font-medium" style={{ color: 'var(--text)' }}>
+          <Link href="/" className="flex items-center gap-2 text-sm font-medium" style={{ color: 'var(--text)' }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ color: 'var(--accent)' }}>
               <rect x="5" y="2" width="14" height="20" rx="7"/>
               <line x1="12" y1="2" x2="12" y2="10"/>
               <line x1="8"  y1="6" x2="16" y2="6"/>
             </svg>
             <span>Mouse Tester</span>
-          </div>
+          </Link>
 
           {/* Links */}
           <nav className="flex flex-wrap justify-center gap-4 text-xs" aria-label="Footer navigation">
             {[
-              { href: '/privacy', label: 'Privacy Policy' },
-              { href: '/terms',   label: 'Terms of Use'   },
-              { href: '/about',   label: 'About'          },
-              { href: '/contact', label: 'Contact'        },
+              { href: '/',                  label: 'Home'           },
+              { href: '/mouse-tester',       label: 'Mouse Tester'   },
+              { href: '/privacy',            label: 'Privacy Policy' },
+              { href: '/terms',              label: 'Terms of Use'   },
+              { href: '/about',              label: 'About'          },
+              { href: '/contact',            label: 'Contact'        },
             ].map(l => (
               <Link
                 key={l.href}
