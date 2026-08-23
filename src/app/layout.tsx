@@ -16,23 +16,25 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'Mouse Tester — Free Online Mouse & Hardware Utilities',
-    template: '%s | Mouse Tester',
+    default: 'VEYLO — Free tools for EVERYTHING',
+    template: '%s | VEYLO',
   },
   description: SITE_CONFIG.description,
   keywords: [
+    'online tools',
+    'free browser tools',
     'mouse tester',
-    'mouse test',
-    'mouse button test',
+    'mouse test online',
     'double click test',
-    'mouse scroll test',
     'mouse polling rate test',
     'mouse DPI test',
     'CPS test',
-    'online input tester',
+    'hardware diagnostics',
+    'browser utilities',
+    'VEYLO',
   ],
-  authors: [{ name: SITE_CONFIG.name }],
-  creator: SITE_CONFIG.name,
+  authors: [{ name: SITE_CONFIG.publisher }],
+  creator: SITE_CONFIG.publisher,
   publisher: SITE_CONFIG.publisher,
   robots: {
     index: true,
@@ -43,19 +45,40 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: 'Mouse Tester — Free Online Mouse & Hardware Utilities',
+    title: 'VEYLO — Free tools for EVERYTHING',
     description: SITE_CONFIG.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mouse Tester — Free Online Mouse & Hardware Utilities',
+    title: 'VEYLO — Free tools for EVERYTHING',
     description: SITE_CONFIG.description,
   },
 };
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_CONFIG.name,
+  alternateName: 'VEYLO Tools',
+  url: SITE_CONFIG.url,
+  description: SITE_CONFIG.description,
+  publisher: {
+    '@type': 'Organization',
+    name: SITE_CONFIG.publisher,
+    url: SITE_CONFIG.url,
+  },
+};
+
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <a
           href="#main-content"
@@ -65,9 +88,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <Header />
-        <ToolShell>
-          {children}
-        </ToolShell>
+        <main id="main-content" className="flex-1">
+          <ToolShell>
+            {children}
+          </ToolShell>
+        </main>
         <Footer />
 
         {/* AdSense readiness bottom container */}
@@ -76,3 +101,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+

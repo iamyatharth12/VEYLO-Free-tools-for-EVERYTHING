@@ -63,8 +63,12 @@ export default function MouseClickTestPage() {
             <p className="mt-1">Make sure you click &quot;Start Click Testing&quot; first. When testing is active, context menu interception is enabled so right clicks register in the diagnostic grid.</p>
           </div>
           <div>
-            <h4 className="font-bold" style={{ color: 'var(--text)' }}>Is my mouse data stored on a server?</h4>
-            <p className="mt-1">No. All mouse input events are processed entirely inside your local browser DOM. Nothing is ever sent over the network.</p>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>Is my mouse input data uploaded or saved to a server?</h4>
+            <p className="mt-1">No. All mouse input events are processed entirely inside your local browser. No button clicks or coordinates are uploaded to external servers.</p>
+          </div>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>Can this test browser side buttons?</h4>
+            <p className="mt-1">Yes, side buttons (Back and Forward) emit standard DOM mouse events (button index 3 and 4) which are captured when testing is active.</p>
           </div>
         </div>
       </article>
@@ -73,3 +77,4 @@ export default function MouseClickTestPage() {
     </div>
   );
 }
+

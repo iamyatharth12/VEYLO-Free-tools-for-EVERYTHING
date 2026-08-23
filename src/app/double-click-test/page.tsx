@@ -58,12 +58,27 @@ export default function DoubleClickTestPage() {
         </h3>
         <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
           1. Clean out dust around the switch using compressed air.<br />
-          2. Adjust debouncing algorithm settings in software (e.g., Logitech G HUB, Razer Synapse, SteelSeries GG).<br />
+          2. Adjust debouncing algorithm settings in mouse software (e.g., Logitech G HUB, Razer Synapse).<br />
           3. Replace the mechanical microswitch or upgrade to optical switches which eliminate physical contact bounce entirely.
         </p>
+
+        <h3 className="text-lg font-bold" style={{ color: 'var(--text)' }}>
+          Frequently Asked Questions
+        </h3>
+        <div className="flex flex-col gap-4 text-sm" style={{ color: 'var(--muted)' }}>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>Why is my mouse double clicking when I only click once?</h4>
+            <p className="mt-1">Mechanical microswitches use metal contact leaves that can oxidize or lose tension over time. When pressed, the contacts bounce against each other (chatter), sending two electric pulses to the micro-controller within a few milliseconds.</p>
+          </div>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>What threshold should I use for double click testing?</h4>
+            <p className="mt-1">Human intentional double clicks rarely occur faster than 80ms to 100ms. If click intervals register under 80ms, it is a strong indicator of hardware switch chatter.</p>
+          </div>
+        </div>
       </article>
 
       <RelatedTools />
     </div>
   );
 }
+

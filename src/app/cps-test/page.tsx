@@ -63,9 +63,24 @@ export default function CpsTestPage() {
             </p>
           </div>
         </div>
+
+        <h3 className="text-lg font-bold" style={{ color: 'var(--text)' }}>
+          Frequently Asked Questions
+        </h3>
+        <div className="flex flex-col gap-4 text-sm" style={{ color: 'var(--muted)' }}>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>What is a good CPS score?</h4>
+            <p className="mt-1">The average human click speed using standard clicking is between 6.0 and 7.5 CPS. Competitive gamers using jitter or butterfly techniques can achieve 12 to 18+ CPS.</p>
+          </div>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>Which clicking method is the fastest?</h4>
+            <p className="mt-1">Butterfly clicking and drag clicking are the fastest methods, often exceeding 15 to 20+ CPS on compatible switches.</p>
+          </div>
+        </div>
       </article>
 
       <RelatedTools />
     </div>
   );
 }
+

@@ -4,24 +4,33 @@ import { SITE_CONFIG } from '@/lib/siteConfig';
 const CANONICAL_URL = `${SITE_CONFIG.url}/double-click-test`;
 
 export const metadata: Metadata = {
-  title: 'Double Click Test - Mouse Switch Chatter & Double Click Checker',
-  description: 'Test your mouse for accidental double clicks and microswitch chatter. Measures click interval timing in milliseconds to detect faulty mouse switches.',
-  keywords: 'double click test, mouse double click test, double click tester, is my mouse double clicking, mouse switch double click test, switch chatter checker',
+  title: 'Double Click Test — Free Online Tool | VEYLO',
+  description: 'Test your mouse for accidental double clicks and microswitch chatter with VEYLO. Measures click interval timing in milliseconds to detect faulty mouse switches.',
+  keywords: [
+    'double click test',
+    'mouse double click test',
+    'double click tester',
+    'is my mouse double clicking',
+    'mouse switch double click test',
+    'switch chatter checker',
+    'VEYLO',
+  ],
   alternates: { canonical: CANONICAL_URL },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Double Click Test - Mouse Switch Chatter & Double Click Checker',
-    description: 'Check if your mouse switch is double clicking accidentally. Test click intervals in milliseconds online.',
+    title: 'Double Click Test — Free Online Tool | VEYLO',
+    description: 'Check if your mouse switch is double clicking accidentally. Test click intervals in milliseconds online with VEYLO.',
     url: CANONICAL_URL,
     siteName: SITE_CONFIG.name,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Double Click Test - Detect Accidental Double Clicks Online',
+    title: 'Double Click Test — Free Online Tool | VEYLO',
     description: 'Measure microswitch chatter timing directly in your browser.',
   },
 };
+
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',

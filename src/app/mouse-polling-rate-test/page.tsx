@@ -68,9 +68,24 @@ export default function MousePollingRateTestPage() {
         <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
           Browser event dispatch rates depend on your operating system display refresh rate and active browser rendering frame rate. For ultra-high polling rates (&gt;2000Hz), ensure hardware acceleration is enabled in browser settings.
         </p>
+
+        <h3 className="text-lg font-bold" style={{ color: 'var(--text)' }}>
+          Frequently Asked Questions
+        </h3>
+        <div className="flex flex-col gap-4 text-sm" style={{ color: 'var(--muted)' }}>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>What is mouse polling rate?</h4>
+            <p className="mt-1">Polling rate (measured in Hz) is how often your mouse sends position data to your computer per second. 1000Hz sends data every 1 millisecond.</p>
+          </div>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>Why is my polling rate test reading lower than 1000Hz?</h4>
+            <p className="mt-1">You need to move your mouse rapidly to generate enough motion events for the sensor to transmit at its maximum polling frequency. Also check that your monitor refresh rate and browser hardware acceleration are enabled.</p>
+          </div>
+        </div>
       </article>
 
       <RelatedTools />
     </div>
   );
 }
+

@@ -52,9 +52,24 @@ export default function MouseScrollTestPage() {
           <li><strong style={{ color: 'var(--text)' }}>Horizontal / Tilt Scroll:</strong> Captures left and right tilt wheel actions on supported productivity mice.</li>
           <li><strong style={{ color: 'var(--text)' }}>Middle Click Switch:</strong> Verifies whether pressing down on the scroll wheel activates the middle mouse switch.</li>
         </ul>
+
+        <h3 className="text-lg font-bold" style={{ color: 'var(--text)' }}>
+          Frequently Asked Questions
+        </h3>
+        <div className="flex flex-col gap-4 text-sm" style={{ color: 'var(--muted)' }}>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>Why does my mouse scroll jump or move in the wrong direction?</h4>
+            <p className="mt-1">This is commonly caused by dust or lint clogging the mechanical rotary encoder inside the mouse wheel. Cleaning the wheel assembly with compressed air often resolves erratic scrolling steps.</p>
+          </div>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>Can this tool test horizontal or tilt wheel scrolling?</h4>
+            <p className="mt-1">Yes, if your mouse supports tilt-wheel horizontal scrolling, tilting the wheel left or right will increment the horizontal scroll counters in real-time.</p>
+          </div>
+        </div>
       </article>
 
       <RelatedTools />
     </div>
   );
 }
+

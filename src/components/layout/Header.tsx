@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { useTheme } from '@/hooks/useTheme';
 
 const NAV_LINKS = [
+  { href: '/#tools',                 label: 'All Tools' },
   { href: '/mouse-tester',           label: 'Mouse Tester' },
   { href: '/mouse-click-test',       label: 'Click Test' },
   { href: '/double-click-test',      label: 'Double Click' },
-  { href: '/mouse-polling-rate-test', label: 'Polling Rate (Hz)' },
+  { href: '/mouse-polling-rate-test', label: 'Polling Rate' },
   { href: '/cps-test',               label: 'CPS Test' },
   { href: '/about',                  label: 'About' },
 ];
@@ -49,17 +50,24 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 font-semibold text-base tracking-tight"
+            className="flex items-center gap-2.5 font-black text-lg tracking-tight"
             style={{ color: 'var(--text)' }}
-            aria-label="Mouse Tester Home"
+            aria-label="VEYLO Home"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ color: 'var(--accent)' }}>
-              <rect x="5" y="2" width="14" height="20" rx="7"/>
-              <line x1="12" y1="2" x2="12" y2="10"/>
-              <line x1="8"  y1="6" x2="16" y2="6"/>
-            </svg>
-            <span>Mouse Tester</span>
+            <div
+              className="w-7 h-7 rounded-lg flex items-center justify-center font-black text-sm tracking-tighter"
+              style={{
+                background: 'var(--accent)',
+                color: '#fff',
+                boxShadow: '0 2px 8px color-mix(in srgb, var(--accent) 30%, transparent)',
+              }}
+              aria-hidden="true"
+            >
+              V
+            </div>
+            <span className="font-extrabold tracking-tight">VEYLO</span>
           </Link>
+
 
           {/* Desktop nav + theme toggle */}
           <div className="hidden md:flex items-center gap-1">

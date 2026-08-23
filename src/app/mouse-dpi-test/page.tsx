@@ -58,9 +58,24 @@ export default function MouseDpiTestPage() {
         <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
           For instance, a player using 400 DPI with 2.0 in-game sensitivity has an eDPI of 800 (400 × 2.0). Another player using 800 DPI with 1.0 in-game sensitivity also has an eDPI of 800—meaning both players experience identical cursor sensitivity!
         </p>
+
+        <h3 className="text-lg font-bold" style={{ color: 'var(--text)' }}>
+          Frequently Asked Questions
+        </h3>
+        <div className="flex flex-col gap-4 text-sm" style={{ color: 'var(--muted)' }}>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>What is the difference between DPI and eDPI?</h4>
+            <p className="mt-1">DPI (Dots Per Inch) is the hardware resolution of your mouse sensor. eDPI (Effective DPI) is your true in-game sensitivity, calculated as Hardware DPI multiplied by your In-Game Sensitivity setting.</p>
+          </div>
+          <div>
+            <h4 className="font-bold" style={{ color: 'var(--text)' }}>Why should I match eDPI across games?</h4>
+            <p className="mt-1">Matching your eDPI preserves muscle memory for crosshair placement and flick shots when switching between competitive first-person shooter titles.</p>
+          </div>
+        </div>
       </article>
 
       <RelatedTools />
     </div>
   );
 }
+

@@ -22,7 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map(route => ({
     url: `${SITE_CONFIG.url}${route}`,
     lastModified: now,
-    changeFrequency: route === '' || route === '/mouse-tester' ? 'weekly' : 'monthly',
+    changeFrequency: 'weekly',
     priority: route === '' ? 1.0 : route === '/mouse-tester' ? 0.9 : 0.8,
   }));
 }
+
