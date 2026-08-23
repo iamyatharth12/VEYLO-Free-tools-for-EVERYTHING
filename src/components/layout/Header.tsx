@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useTheme } from '@/hooks/useTheme';
 
 const NAV_LINKS = [
-  { href: '/#tools',                 label: 'All Tools' },
+  { href: '/tools',                  label: 'Directory' },
   { href: '/mouse-tester',           label: 'Mouse Tester' },
   { href: '/mouse-click-test',       label: 'Click Test' },
   { href: '/double-click-test',      label: 'Double Click' },
@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: '/cps-test',               label: 'CPS Test' },
   { href: '/about',                  label: 'About' },
 ];
+
 
 function SunIcon() {
   return (

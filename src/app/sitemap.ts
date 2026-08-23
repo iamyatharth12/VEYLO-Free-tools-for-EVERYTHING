@@ -4,6 +4,7 @@ import { SITE_CONFIG } from '@/lib/siteConfig';
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
+    '/tools',
     '/mouse-tester',
     '/mouse-click-test',
     '/double-click-test',
@@ -16,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/terms',
     '/contact',
   ];
+
 
   const now = new Date();
 

@@ -28,7 +28,7 @@ export default function Footer() {
           {/* Links */}
           <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs" aria-label="Footer navigation">
             {[
-              { href: '/',                       label: 'All Tools'      },
+              { href: '/tools',                  label: 'All Tools'      },
               { href: '/mouse-tester',           label: 'Mouse Tester'   },
               { href: '/mouse-click-test',       label: 'Click Test'     },
               { href: '/double-click-test',      label: 'Double Click'   },
