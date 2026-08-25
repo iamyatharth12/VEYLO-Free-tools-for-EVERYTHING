@@ -54,6 +54,9 @@ export const metadata: Metadata = {
     title: 'VEYLO — Free tools for EVERYTHING',
     description: SITE_CONFIG.description,
   },
+  verification: {
+    google: 'tg3EmR8D41Z9D0dJrMr1uWtkx4cpx2KDMKZUYo9Tr7g',
+  },
 };
 
 const websiteSchema = {
