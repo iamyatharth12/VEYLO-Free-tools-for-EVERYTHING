@@ -78,6 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="tg3EmR8D41Z9D0dJrMr1uWtkx4cpx2KDMKZUYo9Tr7g" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
