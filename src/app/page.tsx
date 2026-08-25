@@ -12,7 +12,6 @@ export const metadata = {
 export default function Home() {
   const categories = getAllCategories();
   const availableTools = getAvailableTools();
-  const mouseTools = getToolsByCategory('mouse-input', 'available');
 
   return (
     <div className="flex flex-col gap-14 py-8 animate-fade-in max-w-7xl mx-auto px-4">
@@ -91,14 +90,14 @@ export default function Home() {
       </section>
 
       {/* Live Tools Section */}
-      <section id="tools" aria-label="Available Tools" className="flex flex-col gap-6 scroll-mt-20">
+      <section id="tools" aria-label="Popular Tools" className="flex flex-col gap-6 scroll-mt-20">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-2xl font-black tracking-tight" style={{ color: 'var(--text)' }}>
-              Available Tools
+              Popular Tools
             </h2>
             <p className="text-xs sm:text-sm mt-1" style={{ color: 'var(--muted)' }}>
-              Select any tool to launch it instantly in your browser.
+              Launch instant browser utilities across generators, text analysis, and diagnostics.
             </p>
           </div>
           <Link
@@ -106,14 +105,17 @@ export default function Home() {
             className="text-xs font-bold px-3 py-1.5 rounded-lg transition-colors hover:underline"
             style={{ background: 'var(--surface-2)', border: '1px solid var(--border-c)', color: 'var(--accent)' }}
           >
-            Browse Full Directory ({availableTools.length} Live) →
+            Browse All ({availableTools.length} Live) →
           </Link>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {mouseTools.map(tool => (
-            <ToolCard key={tool.slug} tool={tool} />
-          ))}
+          {availableTools
+            .filter(t => t.popular || t.featured)
+            .slice(0, 8)
+            .map(tool => (
+              <ToolCard key={tool.slug} tool={tool} />
+            ))}
         </div>
       </section>
 

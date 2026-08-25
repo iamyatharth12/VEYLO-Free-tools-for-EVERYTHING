@@ -1,62 +1,64 @@
 import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/siteConfig';
+import { TOOLS_REGISTRY } from '@/lib/registry/tools';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    '',
-    '/tools',
-    '/mouse-tester',
-    '/mouse-click-test',
-    '/double-click-test',
-    '/mouse-scroll-test',
-    '/mouse-polling-rate-test',
-    '/mouse-dpi-test',
-    '/cps-test',
-    '/random-number-generator',
-    '/random-word-generator',
-    '/username-generator',
-    '/random-letter-generator',
-    '/coin-flip',
-    '/dice-roller',
-    '/yes-or-no',
-    '/random-choice-picker',
-    '/team-generator',
-    '/truth-or-dare',
-    '/random-idea-generator',
-    '/story-idea-generator',
-    '/character-generator',
-    '/plot-generator',
-    '/song-idea-generator',
-    '/music-genre-generator',
-    '/band-name-generator',
-    '/art-prompt-generator',
-    '/drawing-prompt-generator',
-    '/character-name-generator',
-    '/word-counter',
-    '/character-counter',
-    '/sentence-counter',
-    '/case-converter',
-    '/text-reverser',
-    '/remove-duplicate-lines',
-    '/sort-lines',
-    '/lorem-ipsum-generator',
-    '/text-cleaner',
-    '/text-diff-checker',
-    '/about',
-    '/privacy',
-    '/terms',
-    '/contact',
-  ];
-
-
-
   const now = new Date();
 
-  return routes.map(route => ({
-    url: `${SITE_CONFIG.url}${route}`,
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: route === '' ? 1.0 : route === '/mouse-tester' ? 0.9 : 0.8,
-  }));
+  // Core static landing & directory pages
+  const staticPages: MetadataRoute.Sitemap = [
+    {
+      url: SITE_CONFIG.url,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 1.0,
+    },
+    {
+      url: `${SITE_CONFIG.url}/tools`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+  ];
+
+  // Dynamically map all active production tools from registry
+  const toolPages: MetadataRoute.Sitemap = TOOLS_REGISTRY
+    .filter(t => t.status === 'available')
+    .map(tool => ({
+      url: `${SITE_CONFIG.url}/${tool.slug}`,
+      lastModified: tool.lastUpdated ? new Date(tool.lastUpdated) : now,
+      changeFrequency: 'weekly',
+      priority: tool.popular || tool.featured ? 0.9 : 0.8,
+    }));
+
+  // Informational and policy pages
+  const infoPages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_CONFIG.url}/about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_CONFIG.url}/privacy`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    },
+    {
+      url: `${SITE_CONFIG.url}/terms`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    },
+    {
+      url: `${SITE_CONFIG.url}/contact`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+  ];
+
+  return [...staticPages, ...toolPages, ...infoPages];
 }
 
