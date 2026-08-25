@@ -12,11 +12,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/mouse-polling-rate-test',
     '/mouse-dpi-test',
     '/cps-test',
+    '/random-number-generator',
+    '/random-word-generator',
+    '/username-generator',
+    '/random-letter-generator',
+    '/coin-flip',
+    '/dice-roller',
+    '/yes-or-no',
+    '/random-choice-picker',
+    '/team-generator',
+    '/truth-or-dare',
     '/about',
     '/privacy',
     '/terms',
     '/contact',
   ];
+
 
 
   const now = new Date();

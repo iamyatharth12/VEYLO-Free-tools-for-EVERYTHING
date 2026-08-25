@@ -120,7 +120,152 @@ export const TOOLS_REGISTRY: ToolMetadata[] = [
   },
 
   // ==========================================
-  // Generators (Roadmap)
+  // 10 New Live Production Tools (Batch 1)
+  // ==========================================
+  {
+    slug: 'random-number-generator',
+    name: 'Random Number Generator',
+    shortDescription: 'Generate random numbers within custom ranges with sorting, duplicate control, and batch copying.',
+    category: 'random',
+    icon: '🔢',
+    status: 'available',
+    featured: true,
+    popular: true,
+    relatedTools: ['dice-roller', 'coin-flip', 'random-choice-picker', 'yes-or-no'],
+    seoTitle: 'Random Number Generator — Free Online Tool | VEYLO',
+    seoDescription: 'Generate true random numbers online with custom min/max ranges, multiple quantity outputs, and sorting options. 100% client-side.',
+    keywords: ['random number generator', 'rng online', 'random number picker', 'number randomizer', 'generate random numbers'],
+    lastUpdated: '2026-08-25',
+  },
+  {
+    slug: 'random-word-generator',
+    name: 'Random Word Generator',
+    shortDescription: 'Generate random English words filtered by length, complexity, and parts of speech for creative writing.',
+    category: 'writing',
+    icon: '📖',
+    status: 'available',
+    popular: true,
+    relatedTools: ['username-generator', 'random-letter-generator', 'truth-or-dare'],
+    seoTitle: 'Random Word Generator — Free Online Tool | VEYLO',
+    seoDescription: 'Generate random words with customizable word counts, length filters, and parts of speech for brainstorming and games.',
+    keywords: ['random word generator', 'random words', 'word randomizer', 'generate words online', 'creative writing prompts'],
+    lastUpdated: '2026-08-25',
+  },
+  {
+    slug: 'username-generator',
+    name: 'Username Generator',
+    shortDescription: 'Generate unique, creative usernames and gamer handles across gaming, tech, and aesthetic styles.',
+    category: 'creativity',
+    icon: '✨',
+    status: 'available',
+    popular: true,
+    relatedTools: ['random-word-generator', 'random-letter-generator'],
+    seoTitle: 'Username Generator — Free Online Gamertag & Handle Creator | VEYLO',
+    seoDescription: 'Generate cool, unique usernames and gamer handles by style, keyword prefix, numbers, and separators with one-click copy.',
+    keywords: ['username generator', 'gamertag generator', 'cool usernames', 'handle generator', 'online nickname maker'],
+    lastUpdated: '2026-08-25',
+  },
+  {
+    slug: 'random-letter-generator',
+    name: 'Random Letter Generator',
+    shortDescription: 'Pick random letters from custom alphabets with uppercase, lowercase, and vowel/consonant filters.',
+    category: 'random',
+    icon: '🔤',
+    status: 'available',
+    relatedTools: ['random-number-generator', 'random-word-generator', 'dice-roller'],
+    seoTitle: 'Random Letter Generator — Free Alphabet Picker | VEYLO',
+    seoDescription: 'Generate random letters online. Choose alphabet sets, uppercase/lowercase, vowels or consonants, and batch quantities.',
+    keywords: ['random letter generator', 'random alphabet generator', 'letter picker', 'random character generator'],
+    lastUpdated: '2026-08-25',
+  },
+  {
+    slug: 'coin-flip',
+    name: 'Coin Flip Simulator',
+    shortDescription: 'Flip virtual 3D coins with realistic animations, batch tosses, and live probability statistics.',
+    category: 'random',
+    icon: '🪙',
+    status: 'available',
+    popular: true,
+    relatedTools: ['dice-roller', 'yes-or-no', 'random-choice-picker'],
+    seoTitle: 'Coin Flip Online — 3D Coin Toss Simulator & Stats | VEYLO',
+    seoDescription: 'Flip a coin online with realistic animations and live Heads/Tails statistics. Flip 1, 3, 5, or multiple coins at once.',
+    keywords: ['coin flip', 'flip a coin online', 'heads or tails', 'virtual coin toss', 'coin flipper simulator'],
+    lastUpdated: '2026-08-25',
+  },
+  {
+    slug: 'dice-roller',
+    name: 'Dice Roller (D4 - D100)',
+    shortDescription: 'Roll virtual tabletop RPG dice (d4, d6, d8, d10, d12, d20, d100) with modifiers and roll history.',
+    category: 'gaming',
+    icon: '🎲',
+    status: 'available',
+    popular: true,
+    relatedTools: ['coin-flip', 'random-number-generator', 'random-choice-picker'],
+    seoTitle: 'Dice Roller Online — D&D & RPG Multi-Dice Simulator | VEYLO',
+    seoDescription: 'Virtual dice roller for tabletop RPGs and board games. Roll d4, d6, d8, d10, d12, d20, and d100 dice with custom modifiers.',
+    keywords: ['dice roller', 'dnd dice roller', 'd20 roller', 'roll dice online', 'tabletop dice simulator'],
+    lastUpdated: '2026-08-25',
+  },
+  {
+    slug: 'yes-or-no',
+    name: 'Yes or No Wheel & Generator',
+    shortDescription: 'Instant decision maker with dynamic reveal animations, weighted odds, and custom questions.',
+    category: 'random',
+    icon: '🔮',
+    status: 'available',
+    popular: true,
+    relatedTools: ['coin-flip', 'random-choice-picker', 'truth-or-dare'],
+    seoTitle: 'Yes or No Generator — Instant Decision Maker | VEYLO',
+    seoDescription: 'Get an instant, unbiased Yes or No answer to any question with dynamic reveal animations and decision tracking.',
+    keywords: ['yes or no generator', 'yes or no wheel', 'decision maker online', 'random yes no picker'],
+    lastUpdated: '2026-08-25',
+  },
+  {
+    slug: 'random-choice-picker',
+    name: 'Random Choice Picker',
+    shortDescription: 'Paste your list of options to randomly pick a winner with elimination mode and raffle animations.',
+    category: 'random',
+    icon: '🎯',
+    status: 'available',
+    featured: true,
+    popular: true,
+    relatedTools: ['team-generator', 'yes-or-no', 'random-number-generator'],
+    seoTitle: 'Random Choice Picker — Pick a Random Item from List | VEYLO',
+    seoDescription: 'Randomly select one or multiple winners from any list of items. Features elimination raffle mode and preset templates.',
+    keywords: ['random choice picker', 'random selector', 'pick from list', 'random name picker', 'raffle picker'],
+    lastUpdated: '2026-08-25',
+  },
+  {
+    slug: 'team-generator',
+    name: 'Random Team Generator',
+    shortDescription: 'Evenly balance and randomly divide names into balanced teams or fixed group sizes.',
+    category: 'productivity',
+    icon: '👥',
+    status: 'available',
+    popular: true,
+    relatedTools: ['random-choice-picker', 'random-number-generator'],
+    seoTitle: 'Random Team Generator — Divide Names into Balanced Groups | VEYLO',
+    seoDescription: 'Quickly split a list of player or student names into fair, randomized teams. Choose number of teams or team size.',
+    keywords: ['team generator', 'random team generator', 'group maker', 'split into teams', 'balanced team picker'],
+    lastUpdated: '2026-08-25',
+  },
+  {
+    slug: 'truth-or-dare',
+    name: 'Truth or Dare Generator',
+    shortDescription: 'Hundreds of fun, clean party prompts for friends, family game nights, and icebreakers.',
+    category: 'creativity',
+    icon: '🎭',
+    status: 'available',
+    popular: true,
+    relatedTools: ['yes-or-no', 'random-choice-picker', 'random-word-generator'],
+    seoTitle: 'Truth or Dare Generator — Fun Party Game Prompts | VEYLO',
+    seoDescription: 'Play Truth or Dare online with hundreds of curated, family-safe questions and fun dares categorized by party vibe.',
+    keywords: ['truth or dare generator', 'truth or dare questions', 'party game prompts', 'truth or dare online'],
+    lastUpdated: '2026-08-25',
+  },
+
+  // ==========================================
+  // Future Roadmap Tools
   // ==========================================
   {
     slug: 'password-generator',
@@ -162,10 +307,6 @@ export const TOOLS_REGISTRY: ToolMetadata[] = [
     seoTitle: 'Hash Generator — Free Online Tool | VEYLO',
     seoDescription: 'Calculate SHA-256, MD5, and SHA-512 hashes instantly with Web Crypto API.',
   },
-
-  // ==========================================
-  // Developer Tools (Roadmap)
-  // ==========================================
   {
     slug: 'json-formatter',
     name: 'JSON Formatter & Validator',
@@ -196,10 +337,6 @@ export const TOOLS_REGISTRY: ToolMetadata[] = [
     seoTitle: 'Base64 Encoder Decoder — Free Online Tool | VEYLO',
     seoDescription: 'Encode and decode UTF-8 strings and files to/from Base64 format safely.',
   },
-
-  // ==========================================
-  // Calculators (Roadmap)
-  // ==========================================
   {
     slug: 'percentage-calculator',
     name: 'Percentage Calculator',
@@ -220,10 +357,6 @@ export const TOOLS_REGISTRY: ToolMetadata[] = [
     seoTitle: 'Aspect Ratio Calculator — Free Online Tool | VEYLO',
     seoDescription: 'Calculate image and video aspect ratios, resize dimensions proportionally, and verify resolutions.',
   },
-
-  // ==========================================
-  // Converters (Roadmap)
-  // ==========================================
   {
     slug: 'color-code-converter',
     name: 'Color Code Converter',
@@ -244,10 +377,6 @@ export const TOOLS_REGISTRY: ToolMetadata[] = [
     seoTitle: 'Data Unit & Bandwidth Converter — Free Online Tool | VEYLO',
     seoDescription: 'Convert data storage units (Bytes, KB, MB, GB, TB) and network bandwidth transfer speeds.',
   },
-
-  // ==========================================
-  // Text & Writing Tools (Roadmap)
-  // ==========================================
   {
     slug: 'case-converter',
     name: 'Text Case Converter',
@@ -268,10 +397,6 @@ export const TOOLS_REGISTRY: ToolMetadata[] = [
     seoTitle: 'Word Counter & Text Statistics — Free Online Tool | VEYLO',
     seoDescription: 'Real-time word counter, character counter, sentence counter, and reading time estimator.',
   },
-
-  // ==========================================
-  // Gaming & Controller Tools (Roadmap)
-  // ==========================================
   {
     slug: 'gamepad-tester',
     name: 'Gamepad & Controller Tester',
@@ -282,10 +407,6 @@ export const TOOLS_REGISTRY: ToolMetadata[] = [
     seoTitle: 'Gamepad Tester — Free Online Tool | VEYLO',
     seoDescription: 'Test gamepad controllers online using HTML5 Gamepad API. Inspect button signals and analog stick axis values.',
   },
-
-  // ==========================================
-  // Screen & Display Tools (Roadmap)
-  // ==========================================
   {
     slug: 'dead-pixel-test',
     name: 'Dead Pixel Test',
@@ -306,34 +427,6 @@ export const TOOLS_REGISTRY: ToolMetadata[] = [
     seoTitle: 'Screen Refresh Rate (Hz) Test — Free Online Tool | VEYLO',
     seoDescription: 'Measure display frame rate and monitor Hz frequency using high-precision requestAnimationFrame benchmarking.',
   },
-
-  // ==========================================
-  // Random Tools (Roadmap)
-  // ==========================================
-  {
-    slug: 'random-number-generator',
-    name: 'Random Number Generator',
-    shortDescription: 'Generate truly random numbers between custom ranges with unique and sorting options.',
-    category: 'random',
-    icon: '🎲',
-    status: 'coming-soon',
-    seoTitle: 'Random Number Generator — Free Online Tool | VEYLO',
-    seoDescription: 'Generate random numbers within any range using cryptographically secure random values.',
-  },
-  {
-    slug: 'coin-flipper',
-    name: 'Coin Flipper & Dice Roller',
-    shortDescription: 'Flip virtual coins, roll D6/D20 dice, and track toss history with probability statistics.',
-    category: 'random',
-    icon: '🪙',
-    status: 'coming-soon',
-    seoTitle: 'Coin Flipper & Dice Roller — Free Online Tool | VEYLO',
-    seoDescription: 'Flip virtual coins and roll multi-sided dice online with unbiased random physics simulation.',
-  },
-
-  // ==========================================
-  // Productivity Tools (Roadmap)
-  // ==========================================
   {
     slug: 'stopwatch-timer',
     name: 'Online Stopwatch & Lap Timer',
@@ -345,3 +438,4 @@ export const TOOLS_REGISTRY: ToolMetadata[] = [
     seoDescription: 'High-precision browser stopwatch with split lap tracking and keyboard hotkey controls.',
   },
 ];
+
