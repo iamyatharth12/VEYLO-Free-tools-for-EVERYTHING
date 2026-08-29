@@ -61,7 +61,8 @@ export function getToolsByCategory(categoryId: string, statusFilter?: ToolStatus
  * Retrieve a single tool by its route slug.
  */
 export function getToolBySlug(slug: string): ToolMetadata | undefined {
-  return TOOLS_REGISTRY.find(t => t.slug === slug);
+  const clean = slug.replace(/^tools\//, '').replace(/^\//, '');
+  return TOOLS_REGISTRY.find(t => t.slug === slug || t.slug === clean || t.slug === `tools/${clean}` || t.slug.replace(/^tools\//, '') === clean);
 }
 
 /**
